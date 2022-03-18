@@ -93,6 +93,7 @@ def main():
     print('Welcome to Tic Tac Toe!')
     while True:
         # Reset the board
+        guideBoard = [' ','1','2','3','4','5','6','7','8','9']
         theBoard = [' '] * 10
         player1_marker, player2_marker = get_player_marker_choice()
         turn = choose_first()
@@ -103,7 +104,8 @@ def main():
         while game_on:
             if turn == 'Player 1':
                 # Player1's turn.
-
+                display_board(guideBoard)
+                sleep(2)
                 display_board(theBoard)
                 position = get_next_move(theBoard)
                 place_marker(theBoard, player1_marker, position)
@@ -122,7 +124,8 @@ def main():
 
             else:
                 # Player2's turn.
-
+                display_board(guideBoard)
+                sleep(2)
                 display_board(theBoard)
                 position = get_next_move(theBoard)
                 place_marker(theBoard, player2_marker, position)
