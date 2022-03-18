@@ -83,7 +83,7 @@ def get_next_move(board):
 def get_polar_question(phrase):
     user_input=''
     while True:
-        user_input=input('Do you want to play again? Enter Yes or No: ').lower()
+        user_input=input(phrase).lower()
         if not (user_input=='y'or user_input=='n'):
             print('\n*** Choose Y or N only ***')
         else: break
@@ -98,12 +98,7 @@ def main():
         turn = choose_first()
         print(turn + ' will go first.')
 
-        play_game = input('Are you ready to play? Enter Yes or No.')
-
-        if play_game.lower()[0] == 'y':
-            game_on = True
-        else:
-            game_on = False
+        game_on = get_polar_question('Are you ready to play? Enter Yes or No.')
 
         while game_on:
             if turn == 'Player 1':
@@ -144,7 +139,7 @@ def main():
                     else:
                         turn = 'Player 1'
                         
-        if not get_polar_question():
+        if not get_polar_question('Do you want to play again? Enter Yes or No: '):
             break
 
 if __name__ == "__main__":
