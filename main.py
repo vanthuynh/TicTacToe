@@ -105,7 +105,7 @@ def main():
             if turn == 'Player 1':
                 # Player1's turn.
                 display_board(guideBoard)
-                sleep(2)
+                sleep(1)
                 display_board(theBoard)
                 position = get_next_move(theBoard)
                 place_marker(theBoard, player1_marker, position)
