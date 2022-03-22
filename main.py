@@ -2,7 +2,7 @@ from time import sleep
 from os import system, name
 from time import sleep
 import random
-  
+
 # define our clear screen function
 def clear():
     # for windows
@@ -15,17 +15,17 @@ def clear():
 # function that display board
 def display_board(board):
     clear()
-    print('   |   |')
-    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
-    print('   |   |')
-    print('-----------')
-    print('   |   |')
-    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
-    print('   |   |')
+    print('     |     |')
+    print(' ' + board[7] + '   |  ' + board[8] + '  |  ' + board[9])
+    print('     |     |')
+    print('-----------------')
+    print('     |     |')
+    print(' ' + board[4] + '   |  ' + board[5] + '  |  ' + board[6])
+    print('     |     |')
+    print('-----------------')
+    print('     |     |')
+    print(' ' + board[1] + '   |  ' + board[2] + '  |  ' + board[3])
+    print('     |     |')
 
 # function that get player's marker option
 def get_player_marker_choice():
@@ -73,10 +73,10 @@ def full_board_check(board):
 # ask user next move on the board
 def get_next_move(board):
     position = 0
-    
+
     while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
         position = int(input('Choose your next position: (1-9) '))
-        
+
     return position
 
 # method that ask given phrase and return yes/no answer
@@ -100,12 +100,11 @@ def main():
         print(turn + ' will go first.')
 
         game_on = get_polar_question('Are you ready to play? Enter Yes or No.')
-
+        display_board(guideBoard)
+        sleep(1)
         while game_on:
             if turn == 'Player 1':
                 # Player1's turn.
-                display_board(guideBoard)
-                sleep(1)
                 display_board(theBoard)
                 position = get_next_move(theBoard)
                 place_marker(theBoard, player1_marker, position)
@@ -124,8 +123,6 @@ def main():
 
             else:
                 # Player2's turn.
-                display_board(guideBoard)
-                sleep(2)
                 display_board(theBoard)
                 position = get_next_move(theBoard)
                 place_marker(theBoard, player2_marker, position)
@@ -141,7 +138,7 @@ def main():
                         break
                     else:
                         turn = 'Player 1'
-                        
+
         if not get_polar_question('Do you want to play again? Enter Yes or No: '):
             break
 
